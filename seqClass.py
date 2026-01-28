@@ -12,6 +12,8 @@ if len(sys.argv) == 1:
 
 args = parser.parse_args()
 
+parser.add_argument("-m", "--motif", type = str, required = False, help = "Motif")
+
 args.seq = args.seq.upper()                 # New line
 if re.search('^[ACGTU]+$', args.seq):
     if re.search('T', args.seq):
@@ -30,5 +32,6 @@ if args.motif:
         print("FOUND")
     else:
         print("NOT FOUND")
+
 
 
