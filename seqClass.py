@@ -5,14 +5,13 @@ from argparse import ArgumentParser
 
 parser = ArgumentParser(description = 'Classify a sequence as DNA or RNA')
 parser.add_argument("-s", "--seq", type = str, required = True, help = "Input sequence")
+parser.add_argument("-m", "--motif", type = str, required = False, help = "Motif")
 
 if len(sys.argv) == 1:
     parser.print_help()
     sys.exit(1)
 
 args = parser.parse_args()
-
-parser.add_argument("-m", "--motif", type = str, required = False, help = "Motif")
 
 args.seq = args.seq.upper()                 # New line
 if re.search('^[ACGTU]+$', args.seq):
